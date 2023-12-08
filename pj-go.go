@@ -4,11 +4,13 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"os/user"
 	"strings"
 )
 
 func main() {
-	codeFolder := "/Users/antoinegagnon/Code/"
+	usr, _ := user.Current()
+	codeFolder := usr.HomeDir+"/Code/"
 	files, err := os.ReadDir(codeFolder)
 	if err != nil {
 		log.Fatal(err)
